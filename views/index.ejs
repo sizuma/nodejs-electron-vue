@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <%- include('./common/vue') %>
+    </head>
+
+    <body>
+        <main id="main">
+            <p>{{ message }}</p>
+            <div id="input">
+                <input v-model="input">
+                <button v-on:click="submit">submit</button>
+            </div>
+            <div id="chats">
+                <p v-for="chat in chats">
+                    {{ chat.text }}
+                </p>
+            </div>
+        </main>
+    </body>
+
+    <script src="/public/javascript/index.js"></script>
+</html>

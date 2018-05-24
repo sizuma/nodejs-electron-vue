@@ -1,7 +1,7 @@
 {
-    "name": "start-express",
+    "name": "vue",
     "version": "1.0.0",
-    "description": "bootstrap for nodejs with express",
+    "description": "vue",
     "main": "./server/index.js",
     "scripts": {
         "start": "nodemon --ignore 'public/*' ./server/index.js",

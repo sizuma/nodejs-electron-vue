@@ -18,9 +18,25 @@
     },
     "overrides": [
         {
+            "files": ["public/javascript/*.js"],
+            "env": {
+                "node": false,
+                "browser": true
+            }
+        },
+        {
             "files": ["server/index.js"],
             "rules": {
                 "no-console": "off"
+            }
+        },
+        {
+            "files": ["public/javascript/*.js"],
+            "rules": {
+                "no-undef": [
+                    "off",
+                    "Vue"
+                ]
             }
         }
     ]
