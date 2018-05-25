@@ -28,8 +28,9 @@ module.exports = new Promise((resolve, reject) => {
     const server = app.listen(port, error => {
         const actualPort = server.address().port;
         process.env.NODE_PORT = actualPort;
-        console.log(`server is running on ${host}:${actualPort}`);
+        process.env.NODE_OUTRER_HOST = process.env.NODE_OUTRER_HOST || `${host}:${actualPort}`;
+        console.log(`server is running on ${process.env.NODE_OUTRER_HOST}`);
         if (error) reject(error);
-        else resolve(`${host}:${actualPort}`);
+        else resolve(`${process.env.NODE_OUTRER_HOST}`);
     });
 });

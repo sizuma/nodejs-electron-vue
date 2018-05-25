@@ -24,7 +24,7 @@ const Router = express.Router();
 
 Router.get('/', (req, res) => {
     res.render('index', {
-        serverURL: `${process.env.NODE_HOST}:${process.env.NODE_PORT}`,
+        serverURL: `${process.env.NODE_OUTRER_HOST}`,
     });
 });
 
