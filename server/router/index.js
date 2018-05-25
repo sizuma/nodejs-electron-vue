@@ -23,8 +23,9 @@ const markdown = require('markdown-it')({
 const Router = express.Router();
 
 Router.get('/', (req, res) => {
+    res.header('Access-Control-Allow-Origin', process.env.NODE_OUTER_HOST);
     res.render('index', {
-        serverURL: `${process.env.NODE_OUTRER_HOST}`,
+        serverURL: `${process.env.NODE_OUTER_HOST}`,
     });
 });
 
