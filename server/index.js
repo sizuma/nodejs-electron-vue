@@ -19,12 +19,17 @@ app.set('view engine', 'ejs');
 app.locals.pretty = true;
 
 const router = require('./router/index');
-
 app.use('/', router);
 
-const port = process.env.NODE_PORT || 3000;
+const port = process.env.NODE_PORT || 0;
 const host = process.env.NODE_HOST || 'localhost';
 
-app.listen(port, () => {
-    console.log(`server is running on ${host}:${port}`);
+module.exports = new Promise((resolve, reject) => {
+    const server = app.listen(port, error => {
+        const actualPort = server.address().port;
+        process.env.NODE_PORT = actualPort;
+        console.log(`server is running on ${host}:${actualPort}`);
+        if (error) reject(error);
+        else resolve(`${host}:${actualPort}`);
+    });
 });

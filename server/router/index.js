@@ -1,5 +1,4 @@
 const express = require('express');
-const Router = express.Router();
 
 const hljs = require('highlight.js');
 
@@ -21,8 +20,12 @@ const markdown = require('markdown-it')({
     }
 });
 
+const Router = express.Router();
+
 Router.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', {
+        serverURL: `${process.env.NODE_HOST}:${process.env.NODE_PORT}`,
+    });
 });
 
 Router.post('/markdown', (req, res) => {

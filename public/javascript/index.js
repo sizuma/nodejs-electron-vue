@@ -12,7 +12,7 @@ App.app = new Vue({
     methods: {
         keyup: function () {
             superagent
-                .post('http://localhost:3001/markdown')
+                .post(`${serverURL}/markdown`)
                 .send({
                     markdown: App.data.markdown,
                 })

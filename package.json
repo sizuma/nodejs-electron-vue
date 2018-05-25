@@ -4,14 +4,15 @@
     "description": "vue",
     "main": "./server/index.js",
     "scripts": {
-        "start": "nodemon --ignore 'public/*' ./server/index.js",
+        "server": "nodemon --ignore 'public/*' ./server/index.js",
         "lint-server": "find ./server -name '*.js' | xargs ./node_modules/.bin/eslint ; exit 0",
         "lintf-server": "find ./server -name '*.js' | xargs ./node_modules/.bin/eslint --fix ; exit 0",
         "lint-client": "find ./public/javascript -name '*.js' | xargs ./node_modules/.bin/eslint ; exit 0",
         "lintf-client": "find ./public/javascript -name '*.js' | xargs ./node_modules/.bin/eslint --fix; exit 0",
         "lint": "npm run lint-server ; npm run lint-client ; exit 0",
         "lintf": "npm run lintf-server ; npm run lintf-client ; exit 0",
-        "postinstall": "cp -n .env.sample .env | exit 0"
+        "postinstall": "cp -n .env.sample .env | exit 0",
+        "start": "electron electron.js"
     },
     "author": "",
     "license": "ISC",
@@ -20,6 +21,7 @@
         "cookie-parser": "^1.4.3",
         "dotenv": "^5.0.1",
         "ejs": "^2.6.1",
+        "electron": "^2.0.2",
         "express": "^4.16.3",
         "highlight.js": "^9.12.0",
         "markdown-it": "^8.4.1",
