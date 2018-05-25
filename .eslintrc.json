@@ -8,7 +8,9 @@
     },
     "globals": {},
     "rules": {
-        "no-console": "warn",
+        "no-console": ["warn", {
+            "allow": ["error"]
+        }],
         "semi": "error",
         "prefer-const": "error",
         "indent": [

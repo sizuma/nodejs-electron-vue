@@ -1,8 +1,7 @@
 const App = {
     data: {
-        message: 'hi',
-        input: '',
-        chats: [],
+        markdown: '',
+        html: ''
     }
 };
 
@@ -11,13 +10,18 @@ App.app = new Vue({
     data: App.data,
 
     methods: {
-        submit: function () {
-            const input = this.input;
-            this.chats.push({
-                text: input,
-                createdAt: new Date(),
-            });
-            this.input = '';
+        keyup: function () {
+            superagent
+                .post('http://localhost:3001/markdown')
+                .send({
+                    markdown: App.data.markdown,
+                })
+                .end( (error, res) => {
+                    if (error) console.error(error);
+                    else {
+                        App.data.html = res.text;
+                    }
+                });
         }
     }
 });

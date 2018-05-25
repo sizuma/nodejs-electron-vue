@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 
-<html>
+<html class="full">
 
     <head>
         <%- include('./common/vue') %>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.12.0/build/styles/github.min.css">
+        <link rel="stylesheet" href="/public/css/index.css">
+        <script src="/public/superagent.js"></script>
     </head>
 
-    <body>
-        <main id="main">
-            <p>{{ message }}</p>
-            <div id="input">
-                <input v-model="input">
-                <button v-on:click="submit">submit</button>
-            </div>
-            <div id="chats">
-                <p v-for="chat in chats">
-                    {{ chat.text }}
-                </p>
+    <body class="full">
+        <main id="main" class="container full">
+            <div class="row full">
+                <div class="input-field col s12 m6 full">
+                    <textarea v-model="markdown" @keyup="keyup" class="full"></textarea>
+                </div>
+                <div class="col s12 m6">
+                    <div v-html="html"></div>
+                </div>
             </div>
         </main>
     </body>
